@@ -10,8 +10,10 @@
 <script>
 import TodoHeader from './components/TodoHeader.vue'
 import TodoInput from './components/Todoinput.vue'
-import TodoList from './components/Todolist.vue'
+import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/Todofooter.vue'
+
+var eventBus = new Vue();
 
 export default {
   components : {
