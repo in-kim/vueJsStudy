@@ -18,21 +18,12 @@ export default {
        // 저장하는 로직
        addTodo : function() {
            if (this.newTodoItem !== ''){
-              var obj = {completed: false, item : this.newTodoItem};
-              // localstorage mdn
-              // JSON.stringify => javascript를 string으로 변환
-              localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
-              
-              // 확인하는 방법  
-              // 브라우저 개발자 모드 -> application -> storage -> Local Storage 확인
+            //  this.$emit('이벤트이름', 인자1,)
+            this.$emit('addTodoItem',this.newTodoItem);
              
-              // input 초기화 로직 호출
-              this.clearInput();
-
-              // List update
-
+            // input 초기화 로직 호출
+            this.clearInput();
            }
-           
        },
        // 초기화 로직
        clearInput : function(){
