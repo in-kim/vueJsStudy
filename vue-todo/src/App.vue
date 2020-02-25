@@ -74,10 +74,12 @@ export default {
     }
   },
   components : {
-    'TodoHeader' : TodoHeader,
-    'TodoInput' : TodoInput,
-    'TodoList' : TodoList,
-    'TodoFooter' : TodoFooter,
+    // 컴포넌트 태그명 : 컴포넌트 내용
+    // 축약
+    TodoHeader,
+    TodoInput,
+    TodoList,
+    TodoFooter,
   }
 }
 </script>
