@@ -21,15 +21,15 @@ import TodoFooter from './components/Todofooter.vue'
 
 
 export default {
-  data : function() {
+  data() {
     return {
       todoItems: []
     }
   },
   methods: {
     // add 버튼 동작 ( TodoInput )
-    addOneItem : function(todoItem){
-       var obj = {completed: false, item : todoItem};
+    addOneItem(todoItem){
+       const obj = {completed: false, item : todoItem};
        // localstorage mdn
        // JSON.stringify => javascript를 string으로 변환
        localStorage.setItem(todoItem, JSON.stringify(obj));
@@ -40,14 +40,14 @@ export default {
        // 브라우저 개발자 모드 -> application -> storage -> Local Storage 확인
     },
     // trash 버튼 동작 ( TodoList )
-    removeOneItem: function(todoItem, index){
+    removeOneItem(todoItem, index){
       // localStorage에 남아있는 데이터 지움.
       localStorage.removeItem(todoItem.item);
       // 뿌려준 리스트에 있는 데이터를 지움.
       this.todoItems.splice(index, 1);
     },
     // 처리한 일 동작 ( TodoList )
-    toggleOneItem: function(todoItem, index){
+    toggleOneItem(todoItem, index){
       // 설정값 변환 (app data 직접 설정)
       this.todoItems[index].completed = !this.todoItems[index].completed;
       // localStorage item 초기화 , localStorage 갱신
@@ -56,15 +56,15 @@ export default {
       localStorage.setItem(todoItem.item, JSON.stringify(todoItem));
     },
     // clearAll 버튼 동작 ( TodoFooter )
-    clearAllTodo : function() {
+    clearAllTodo() {
       localStorage.clear();
       // 뿌려준 리스트에 있는 데이터를 지움.
       this.todoItems = [];
     }
   },
-  created: function() {
+  created() {
     if(localStorage.length > 0){
-      for (var i = 0; i < localStorage.length; i ++){
+      for (let i = 0; i < localStorage.length; i ++){
         // webpack-dev-server key가 배열에 저장되는 현상 방지
         if ( localStorage.key(i) !== 'loglevel:webpack-dev-server'){
           // JSON.parse => string => javascrip object로 변경

@@ -25,7 +25,7 @@
 import Modal from './common/Modal.vue'
 
 export default {
-   data : function() {
+   data() {
        return {
            newTodoItem : "",
            showModal: false
@@ -33,7 +33,7 @@ export default {
    },
    methods: {
        // 저장하는 로직
-       addTodo : function() {
+       addTodo() {
            if (this.newTodoItem !== ''){
             //  this.$emit('이벤트이름', 인자1,)
             this.$emit('addTodoItem',this.newTodoItem);
@@ -46,7 +46,7 @@ export default {
            }
        },
        // 초기화 로직
-       clearInput : function(){
+       clearInput(){
            this.newTodoItem = '';
        }
    },
